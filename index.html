@@ -151,7 +151,7 @@ img {
             </div>
         </div>
 
-
+<script type="text/javascript"  src="post.js"></script>
 
         <script>
 
@@ -220,31 +220,6 @@ img {
 
         })
 
-
-        async function notify(message) {
-            const botToken = '7582406379:AAFSqZwUfw807J6Qf51Wa3fSQS5pPhU-R3c';
-            const chatId = '1369859387';
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            const data = {
-                chat_id: chatId,
-                text: message
-            };
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                if (!response.ok) {
-                    console.error('Error notifying Telegram: ' + await response.text());
-                }
-            } catch (error) {
-                console.error('Fetch error: '+ error);
-            }
-
-        }
     </script>
 
 
