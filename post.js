@@ -12,7 +12,7 @@ async function notify(message){
     $.ajax({
         url: url,
         type: 'POST',
-        data: json_payload,
+        data: data,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         cache: false,
