@@ -12,16 +12,15 @@ async function notify(message){
     $.ajax({
         url: url,
         type: 'POST',
-        data: data,
+        data: JSON.stringify(data),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         cache: false,
-        async: false,
         success: function (resp) {
-            alert(resp);
+            console.log(resp);
         },
         error: function(e) {
-            alert('Error: '+e);
+             console.log('Error: '+e);
         }
         });
 }
